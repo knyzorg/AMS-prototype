@@ -22,7 +22,7 @@ namespace vkAMS_prototype.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim("Username", "The name"),
-                    new Claim(ClaimTypes.Role, roles)
+                    new Claim(ClaimTypes.Role, roles ?? "")
                 };
                 
                 var claimsIdentity = new ClaimsIdentity(
