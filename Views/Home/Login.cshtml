@@ -1,0 +1,22 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login</h1>
+    <p>Press the button below to login</p>
+    <p>
+    <form>
+        <input name="ReturnUrl" value="@Model" type="hidden">
+        <input name="valid" value="true" type="hidden">
+        <input name="roles" placeholder="Your role">
+        <button>Log me in</button>
+    </form>
+</p>
+    <p><a asp-action="Check">View Current Login Information</a></p>
+    <p><a asp-action="AuthenticatedFoo">Only users authenticated as "Foo" may open this page</a></p>
+    <p><a asp-action="AuthenticatedBar">Only users authenticated as "Bar" may open this page</a></p>
+    <p><a asp-action="AuthenticatedFooBar">Only users authenticated as "Bar" or "Foo" may open this page</a></p>
+    <p><a asp-action="Logout">Logout</a></p>
+</div>

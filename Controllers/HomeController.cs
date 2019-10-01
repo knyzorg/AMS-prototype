@@ -16,44 +16,67 @@ namespace vkAMS_prototype.Controllers
     public class HomeController : Controller
     {
         [AllowAnonymous]
-        public async Task<IActionResult> Login()
+        public async Task<IActionResult> Login(string roles = "", bool valid = false, string returnUrl = null)
         {
-            var claims = new List<Claim>
-            {
-                new Claim("Username", "The name"),
-                new Claim(ClaimTypes.Role, "Test")
-            };
-            
-            var claimsIdentity = new ClaimsIdentity(
-            claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var authProperties = new AuthenticationProperties();
-            
-            await HttpContext.SignInAsync(
-            CookieAuthenticationDefaults.AuthenticationScheme,
-            new ClaimsPrincipal(claimsIdentity),
-            authProperties);
+            if (valid) {
+                var claims = new List<Claim>
+                {
+                    new Claim("Username", "The name"),
+                    new Claim(ClaimTypes.Role, roles)
+                };
+                
+                var claimsIdentity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties = new AuthenticationProperties();
+                
+                await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
+            }
 
-            return View("Index");
+            return View(model: returnUrl);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Logout() {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return Json(new { Works = true });
+            return Json(new { LoggedIn = HttpContext.User.Identity.IsAuthenticated });
         }
 
         [AllowAnonymous]
         public async Task<IActionResult> Check() {
-            return Json(new { User = HttpContext.User.Claims });
+            return Json(new { 
+                        Username = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Username")?.Value,
+                        IsAuthenticated = HttpContext.User.Identity.IsAuthenticated,
+                        Roles = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value
+                    });
         }
         public IActionResult Privacy()
         {
             return View();
         }
 
-        [Authorize(Roles = "Test")]
-        public IActionResult Authenticated()
+        [Authorize(Roles = "Foo")]
+        public IActionResult AuthenticatedFoo()
         {
-            return Json(new {test = true});
+            return Json(new {Welcome = true});
+        }
+        [Authorize(Roles = "Bar")]
+        public IActionResult AuthenticatedBar()
+        {
+            return Json(new {Welcome = true});
+        }
+        [Authorize(Roles = "Foo,Bar")]
+        public IActionResult AuthenticatedFooBar()
+        {
+            return Json(new {Welcome = true});
+        }
+
+        [AllowAnonymous]
+        public IActionResult Denied(string returnUrl = null)
+        {
+            return View(model: returnUrl);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,0 +1,12 @@
+@model string
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Access Denied</h1>
+    
+    <p><a href="@Model">Go Back</a></p>
+    <p><a asp-action="Login" asp-route-ReturnUrl="@Model">Login as another user</a></p>
+    <p><a asp-action="Logout">Logout</a></p>
+</div>

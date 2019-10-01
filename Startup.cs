@@ -38,6 +38,7 @@ namespace vkAMS_prototype
             options.Cookie.Name = "SimpleTalk.AuthCookieAspNetCore";
             options.LoginPath = "/Home/Login";
             options.LogoutPath = "/Home/Logout";
+            options.AccessDeniedPath = "/Home/Denied";
         });
 
                 services.Configure<CookiePolicyOptions>(options =>
