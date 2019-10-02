@@ -5,7 +5,7 @@
 }
 
 <div class="text-center">
-    @if (Model.Success) {
+    @if (Model.Success == true) {
         <div class="alert alert-success" role="alert">
             Login successful
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -15,6 +15,13 @@
     } else if (!String.IsNullOrEmpty(Model.ErrorMessage)) {
         <div class="alert alert-danger" role="alert">
             @Model.ErrorMessage
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    } else if (Model.Success == false) {
+        <div class="alert alert-danger" role="alert">
+            Wrong username or password
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -43,7 +50,7 @@
     <p>Current Status: <b>@(signInManager.IsAuthenticated ? $"Authenticated" : "Anonymous")</b></p>
     <p>Roles: <b>@string.Join(", ", signInManager.Roles)</b></p>
     <p><a asp-action="AuthenticatedTE">Only users authenticated as "TE" may open this page</a></p>
-    <p><a asp-action="AuthenticatedAD">Only users authenticated as "AD" may open this page</a></p>
-    <p><a asp-action="AuthenticatedTEAD">Only users authenticated as "TE" or "AD" may open this page</a></p>
+    <p><a asp-action="AuthenticatedCSA">Only users authenticated as "CSA" may open this page</a></p>
+    <p><a asp-action="AuthenticatedTECSA">Only users authenticated as "TE" or "CSA" may open this page</a></p>
     <p><a asp-action="Logout">Logout</a></p>
 </div>

@@ -32,24 +32,18 @@ namespace vkAMS_prototype
         {
              	
         services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-        .AddCookie(options =>
-        {
-            options.Cookie.HttpOnly = true;
-            options.Cookie.SecurePolicy = true
-            ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
-            options.Cookie.SameSite = SameSiteMode.Lax;
-            options.Cookie.Name = "SimpleTalk.AuthCookieAspNetCore";
-            options.LoginPath = "/Identity/Login";
-            options.LogoutPath = "/Identity/Logout";
-            options.AccessDeniedPath = "/Identity/Denied";
-        });
+                .AddCookie(options =>
+                {
+                    options.Cookie.Name = "AuthToken";
+                    options.LoginPath = "/Identity/Login";
+                    options.LogoutPath = "/Identity/Logout";
+                    options.AccessDeniedPath = "/Identity/Denied";
+                });
 
-                services.Configure<CookiePolicyOptions>(options =>
+        services.Configure<CookiePolicyOptions>(options =>
         {
-        options.MinimumSameSitePolicy = SameSiteMode.Strict;
-        options.HttpOnly = HttpOnlyPolicy.None;
-        options.Secure = true
-            ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
+            options.MinimumSameSitePolicy = SameSiteMode.Strict;
+            options.HttpOnly = HttpOnlyPolicy.None;
         });
 
             services.AddDbContext<SchoolContext>(options =>

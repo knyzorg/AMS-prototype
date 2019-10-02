@@ -54,13 +54,13 @@ namespace vkAMS_prototype.Controllers
         {
             return Content("Okay");
         }
-        [Authorize(Roles = "TE,AD")]
-        public IActionResult AuthenticatedTEAD()
+        [Authorize(Roles = "TE,CSA")]
+        public IActionResult AuthenticatedTECSA()
         {
             return Content("Okay");
         }
-        [Authorize(Roles = "AD")]
-        public IActionResult AuthenticatedAD()
+        [Authorize(Roles = "CSA")]
+        public IActionResult AuthenticatedCSA()
         {
             return Content("Okay");
         }
