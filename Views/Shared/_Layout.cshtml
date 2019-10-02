@@ -1,89 +1,196 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Contoso University</title>
+    <title>@ViewData["Title"] - Cégep Heritage Colleg</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE="/>
-    </environment>
-    <link rel="stylesheet" href="~/css/site.css" />
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Cégep Heritage College">
+	<meta name="copyright" content="Copyright © Cégep Heritage College">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/style/main.css">
+	<link rel="stylesheet" href="~/style/nav.css">
+	<link rel="stylesheet" href="~/style/lightbox/magnific-popup.css">
+	<link rel="stylesheet" href="~/style/flexslider/flexslider.css">
+	<!-- Use absolute linking whenever possible! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="~/style/lightbox/jquery.magnific-popup.min.js"></script>
+	<script src="~/style/flexslider/jquery.flexslider.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Contoso University</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Instructors" asp-action="Index">Instructors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Departments" asp-action="Index">Departments</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+<div class="container-fluid container-fluid-df">
+	
+	<!-- Top [ + ] -->
+	<div class="container-fluid-df">
+	<div class="row content">
+        <div id="topbar" class="col-sm-12 col-sm-12-topbar">
+			<ul id="top-menu">
+			
+				 <li class="top-menu"><a href="#" class="dark">Top nav link</a></li>  
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - Contoso University - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+				<li class="top-menu"><a href="#" class="dark">Top nav link</a></li>
+				
+				<li class="top-menu top-menu-last"><a href="#" class="dark">Top nav link</a></li>
+			</ul>  
         </div>
-    </footer>
+    </div>
+</div>	<!-- Top [ - ] -->
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha256-E/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ/PR7CA4=">
-        </script>
-    </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @RenderSection("Scripts", required: false)
+    <div class="row row-banner content content-banner">
+        <div class="col-sm-3 banner-left" id="heritage-logo-bar">
+			<img src="~/images/heritage-logo.png" class="img-responsive" alt="Cégep Heritage Logo">
+        </div>
+        <div class="col-sm-9 banner-right">
+		    <img src="~/images/banner-right-1.png" alt="logo">
+            <!-- Floating right-hand image --> 
+			<!-- <img src="~/images/floating-banner-accounting.png" class=" banner-image" alt="floating banner"> -->
+			<img src="~/images/vector-anglophone-banner.png" class=" banner-image" alt="floating banner">
+        </div>
+    </div>
+    <div class="row row-overflow-hidden content">
+        <div class="col-sm-3 col-sm-3-df sidenav ">
+
+<!-- Main nav [+] -->
+<div id="main-navbar">
+    <div class="dropdown">
+        <a type="button" class="btn btn-default btn-default-nav" href="#">
+            Link 
+        </a>
+    </div>
+    <div class="dropdown">
+        <a type="button" class="btn btn-default btn-default-nav" href="#">
+            Link 
+        </a>
+    </div>
+    <div class="dropdown">
+        <a type="button" class="btn btn-default btn-default-nav" href="#">
+            Link 
+        </a>
+    </div>
+    <div class="dropdown">
+        <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-default btn-default-nav" href="#">
+            Link Dropdown<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu multi-level" role="menu">
+            <li><a href="#">Dropdown</a></li>
+            <li><a href="#">Dropdown</a></li>
+		    <li><a href="#">Dropdown</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <a type="button" class="btn btn-default btn-default-nav" href="#">
+            Link
+        </a>
+    </div>
+</div>
+<!-- Main nav [-] -->
+
+<!-- Mobile nav [+] -->
+<nav class="navbar navbar-default" id="custom-bootstrap-menu">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" style="text-align:center; height:65px; width:65px; padding-left:20px; margin:0px; border-radius:0px; border:0px; " data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="http://www.cegep-heritage.qc.ca/responsive/images/cegep-heritage-logo-2.png"  style="overflow:hidden"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#"> Link <span class="sr-only"></span></a></li>
+                <li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Link Dropdown<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+						<li><a href="#">Dropdown</a></li>
+						<li><a href="#">Dropdown</a></li>
+						<li><a href="#">Dropdown</a></li>
+                    </ul>
+                </li>
+            </ul>
+			<ul class="nav navbar-nav">
+			<li><a href="#">Link</a></li>
+			</ul>
+			<div class="row" style="padding-top:10px; padding-bottom:10px; border-top:1px solid #242017;">
+				<form class="form" id="searchbox_008356662392743682494:rc6tmuhgcqg" action="~/search-results.php">
+					<div class="col-lg-6">
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button class="btn btn-secondary"  type="submit" name="sa" value="Submit"><span class="glyphicon glyphicon-search"></span> Submit</button>
+							</span>
+							<input type="text" class="form-control" id="q_2"  type="text" name="q" onfocus="this.value=''" placeholder="Search...">
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			
+        </div>
+    </div>
+</nav>
+<!-- Mobile nav [-] -->
+			<div id="left-col-footer"></div>
+			<div id="col-left-footer">
+	<p class="text-left">
+		<span style="font-weight: bold;">Sidebar content</span> <a href="#" target="_blank">link</a> 
+	</p>
+</div>
+        </div>
+        <div class="col-sm-9 col-sm-9-content">
+		    <!-- Page content [+]  // -->
+			<ul id="breadcrumb">
+				<li id="home"><a href="~/index.php" class="dark">Home</a></li>
+				<!--<li class="arrow"><a href="#" class="dark">Breadcrumb</a></li> -->
+				
+			</ul>  
+            <h1>@ViewData["Title"]</h1>
+            <!--<h3>Sub-title</h3>
+            <p>Content</p>
+			<br>
+			<br>-->
+		    @RenderBody()
+        </div>
+    </div>
+</div>
+<footer class="container-fluid container-fluid-df text-center">
+    <p class="text-footer">
+	    325, boul. Cité des Jeunes, Gatineau, QC, Canada J8Y 6T3 | T. 819-778-2270 | F. 819-778-7364<br class="break">
+        &copy; Heritage College. All Rights Reserved. <a href="mailto:TSzyc@cegep-heritage.qc.ca" class="footer">Webmaster</a> | <a href="~/index.php" class="footer">Disclaimer</a>
+	</p>
+</footer>
+
+  <!-- FlexSlider -->
+
+  <script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+      	directionNav: false,
+      	controlNav: false,
+        animation: "fade",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
+
+
+
+    @RenderSection("Scripts", required: false)

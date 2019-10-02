@@ -1,4 +1,126 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿.color-border-bottom{
+  background-color:#b8a379;
+  }
+  .caret{
+  border-top: 4px solid;
+  }
+  
+  #custom-bootstrap-menu.navbar-default .navbar-brand {
+      color: rgba(255, 255, 255, 1);
+    text-decoration:none;
+    padding:0px;
+  }
+  #custom-bootstrap-menu.navbar-default .navbar-header {
+    background-color: #bf8100;
+    background-image: url(http://www.cegep-heritage.qc.ca/responsive/images/banner-logo-bg-01.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    overflow:hidden;
+    border-radius:0px;
+    height:60px;
+    
+  }
+  
+  #custom-bootstrap-menu.navbar-default {
+      font-size: 16px;
+      background-color: #463f2d;
+      border-width: 1px;
+      border-radius: 0px 0px 4px 4px;
+    border-top:15px solid #ada79b;
+  }
+  #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+      color: rgba(255, 255, 255, 1);
+      background-color: rgba(248, 248, 248, 0);
+    text-decoration:none;
+  }
+  #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+  #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+      color: #b8a379;
+      background-color: rgba(0,0,0,0.2);
+    text-decoration:none;
+    
+  }
+  #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+  #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+  #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+      color: #463f2d;
+      background-color: #b8a379;
+    text-decoration:none;
+    margin-top:-10px;
+    padding-top:15px;
+    
+  }
+  #custom-bootstrap-menu.navbar-default .navbar-toggle {
+      border-color: #463f2d;
+  }
+  #custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+  #custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+      background-color: #bf8100;
+    color:#ffffff;
+  }
+  #custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+      background-color: #ffffff;
+  }
+  #custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+  #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+      background-color: #463f2d;
+  }
+  
+  
+  
+  
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .test>li>a:hover {
+      color: #fff;
+      background-color: transparent;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .test>li>a:focus {
+          color: #b8a379;
+      background-color: rgba(0,0,0,0.2);
+    
+  
+  }
+  input[type=text] {
+     height:35px; 
+  }
+  
+  .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+       background-color: #b8a379; 
+      border: 0px;
+  }
+  
+      @media (max-width: 767px){
+      
+      .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu>li>a {
+      padding: 5px 15px 5px 35px;
+  }
+      .navbar-nav .open .dropdown-submenu, .dropdown-menu {
+  
+      font-size:16px;}
+      
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+      color: #fff;
+      text-decoration:none;
+    }
+  
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+      color: #b8a379;
+    }
+  
+  
+    .divider{
+      background-color: #242017 !important;
+    }
+  
+    a:after {
+      border-left-color: #fff;
+    }
+  
+    a:after:hover {
+      border-left-color: #b8a379; ;
+    }
+  }
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
@@ -53,4 +175,12 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
+}
+
+@media screen and (max-width: 767px) {
+
+	#heritage-logo-bar {
+        display: none;
+    }
+	
 }

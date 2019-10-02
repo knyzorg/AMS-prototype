@@ -26,7 +26,7 @@ namespace vkAMS_prototype.Common {
             await _httpContext.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return IsAuthenticated;
         }
-        public async Task<bool> Login(string authUsername, string authPassword, string appCode)
+        public async Task<LoginResult> Login(string authUsername, string authPassword, string appCode)
         {
  
             LoginSoapClient.EndpointConfiguration endpointConfiguration = LoginSoapClient.EndpointConfiguration.LoginSoap;
@@ -73,7 +73,7 @@ namespace vkAMS_prototype.Common {
                     authProperties
                 );
             }
-            return valid;
+            return new LoginResult { Success = valid, ErrorMessage = authorization.Body.AuthorizeResult.ErrorMessage };
         }
     }
 }

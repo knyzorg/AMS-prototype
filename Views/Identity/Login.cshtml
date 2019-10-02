@@ -1,23 +1,49 @@
-﻿@model string
+﻿@model LoginResult
 @inject SignInManager signInManager
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Login";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Login</h1>
-    <p>Press the button below to login</p>
+    @if (Model.Success) {
+        <div class="alert alert-success" role="alert">
+            Login successful
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    } else if (!String.IsNullOrEmpty(Model.ErrorMessage)) {
+        <div class="alert alert-danger" role="alert">
+            @Model.ErrorMessage
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    
+    
     <p>
-    <form asp-action="ExecuteLogin" method="post">
+    <form asp-action="ExecuteLogin" method="post" class="form-horizontal">
         <input name="ReturnUrl" value="@Model" type="hidden">
-        <input name="username" placeholder="Username">
-        <input name="password" placeholder="Password">
-        <button>Log me in</button>
+        <div class="form-group">
+            <label for="username" class="control-label col-sm-2">Username:</label>
+            <div class="col-sm-10">
+                <input id="username" class="form-control" name="username" placeholder="Username" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="control-label col-sm-2">Password:</label>
+            <div class="col-sm-10">
+                <input id="password" class="form-control" name="password" placeholder="Password" type="password">
+            </div>
+        </div>
+        <button class="btn btn-primary btn-lg">Log me in</button>
     </form>
 </p>
-    <p>Current Status: @(signInManager.IsAuthenticated ? $"Authenticated, Roles: {string.Join(",", signInManager.Roles)}" : "Anonymous")</p>
+    <p>Current Status: <b>@(signInManager.IsAuthenticated ? $"Authenticated" : "Anonymous")</b></p>
+    <p>Roles: <b>@string.Join(", ", signInManager.Roles)</b></p>
     <p><a asp-action="AuthenticatedTE">Only users authenticated as "TE" may open this page</a></p>
-    <p><a asp-action="AuthenticatedST">Only users authenticated as "ST" may open this page</a></p>
-    <p><a asp-action="AuthenticatedTEST">Only users authenticated as "TE" or "ST" may open this page</a></p>
+    <p><a asp-action="AuthenticatedAD">Only users authenticated as "AD" may open this page</a></p>
+    <p><a asp-action="AuthenticatedTEAD">Only users authenticated as "TE" or "AD" may open this page</a></p>
     <p><a asp-action="Logout">Logout</a></p>
 </div>

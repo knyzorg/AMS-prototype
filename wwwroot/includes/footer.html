@@ -1,0 +1,25 @@
+<footer class="container-fluid container-fluid-df text-center">
+    <p class="text-footer">
+	    325, boul. Cité des Jeunes, Gatineau, QC, Canada J8Y 6T3 | T. 819-778-2270 | F. 819-778-7364<br class="break">
+        &copy; Heritage College. All Rights Reserved. <a href="mailto:TSzyc@cegep-heritage.qc.ca" class="footer">Webmaster</a> | <a href="./index.php" class="footer">Disclaimer</a>
+	</p>
+</footer>
+
+  <!-- FlexSlider -->
+
+  <script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+      	directionNav: false,
+      	controlNav: false,
+        animation: "fade",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+

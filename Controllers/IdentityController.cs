@@ -26,15 +26,15 @@ namespace vkAMS_prototype.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ExecuteLogin(string username, string password, string returnUrl = null)
         {
-            bool authenticated = await _signInManager.Login(username, password, "PRO");
-            return RedirectToAction("Login", new {valid = !authenticated});
+            LoginResult authenticationResult = await _signInManager.Login(username, password, "PRO");
+            return RedirectToAction("Login", authenticationResult);
         }
         
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(bool error = false, string returnUrl = null)
+        public async Task<IActionResult> Login([Bind]LoginResult loginResult, string returnUrl = null)
         {
-            return View(model: returnUrl);
+            return View(model: loginResult);
         }
 
         [AllowAnonymous]
@@ -54,13 +54,13 @@ namespace vkAMS_prototype.Controllers
         {
             return Content("Okay");
         }
-        [Authorize(Roles = "TE,ST")]
-        public IActionResult AuthenticatedTEST()
+        [Authorize(Roles = "TE,AD")]
+        public IActionResult AuthenticatedTEAD()
         {
             return Content("Okay");
         }
-        [Authorize(Roles = "ST")]
-        public IActionResult AuthenticatedST()
+        [Authorize(Roles = "AD")]
+        public IActionResult AuthenticatedAD()
         {
             return Content("Okay");
         }

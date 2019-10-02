@@ -1,0 +1,108 @@
+
+/* Keep link color same, override default css - OT */
+#main-navbar a:link, 
+#main-navbar a:visited , 
+#main-navbar a:active,
+#main-navbar a:hover  {color: #463f2d; text-decoration:none;}
+
+
+.dropdown-menu {
+    left: 10px;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu > a:after {
+    display: block;
+    content: "";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover > a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+/* <!-- Added by DF [+]  // --> */
+.btn-default-nav {
+	width: 100%;
+    color: #463f2d;
+    font-weight: bold;
+	font-family: verdana;
+	font-size: 12px;
+	text-align: left;
+    border: 1px solid #d6d4d0;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-radius: 0;
+}
+
+.btn-default-nav:hover
+{
+    /* color: #e89d00; */
+}
+
+/* (!) Note : Remove what isn't needed here */
+.btn-default:hover {
+    border-color: #d6d4d0;
+}
+
+.btn-default.focus,.btn-default:focus {
+	border-color:#d6d4d0;
+}
+.btn-default-nav {
+	background-color: #fff;
+	-webkit-transition:0.2s background-color linear;-moz-transition:0.2s background-color linear;transition:0.2s background-color linear;
+}
+.btn-default-nav:hover, .btn-default-nav:focus, .btn-default-nav:active, .btn-default-nav.active, .open > .dropdown-toggle.btn-default-nav {
+    background-color: #f6f6f6;
+	box-shadow: none;
+	-webkit-transition:0.2s background-color linear;-moz-transition:0.2s background-color linear;transition:0.2s background-color linear;
+}
+
+/* (!) Note : Remove what isn't needed here */
+.btn-default-nav.active.focus,.btn-default-nav.active:focus,.btn-default-nav.active:hover,.btn-default-nav:active.focus,.btn-default-nav:active:focus,.btn-default-nav:active:hover,.open>.dropdown-toggle.btn-default-nav.focus,.open>.dropdown-toggle.btn-default-nav:focus,.open>.dropdown-toggle.btn-default-nav:hover {
+    /* color: #e89d00; */
+	background-color:#f6f6f6;
+    border: 1px solid #d6d4d0;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+}
+/* <!-- Added by DF [-]  // --> */

@@ -1,0 +1,617 @@
+/* Cegep Heritage College Main CSS File
+
+	<-- Media Factory FTW -->
+
+	TABLE OF CONTENTS
+	----------------------------------->
+	1. ##Site General Needs
+		1.1. ##Links
+	2. ##Navbar
+		2.1. ##TopNav
+		2.2. ##MainNav
+		2.3. ##LeftColFooter
+		3.1. ##Breadcrumbs
+		3.2. ##Search
+	3. ##Side Nav
+	4. ##Content
+		4.1. ##Tables
+		4.2. ##Blockquotes
+		4.3. ##Misc. Styles
+	6. ##Footer
+	7. ##Media Queries
+	----------------------------------->
+*/
+
+/* ===================================================
+##Site General Needs
+====================================================== */
+
+body {
+	background-image: url("../images/topbar-bg.gif"), url("../images/bg.gif");
+	background-position: left top, left top;
+    background-repeat: repeat-x, repeat;
+	font-family: Verdana, sans-serif;
+	font-size: 14px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    /* color: #daa728; */
+	color: #bf8100;
+}
+
+h3.dark {
+    /* color: #463f2d; */
+	color: #bf8100;
+}
+
+h3 {
+    line-height: 1.2;
+	margin-top: 30px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.italic{
+	font-style: italic;
+}
+
+.red {
+	color: #ff0000;
+}
+
+hr {
+	border-top: 1px solid #d6d4d0;
+}
+
+hr.style-six {
+	border: 0;
+	height: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+br.responsive-break {
+	display: initial;
+}
+
+br.responsive-break-2 {
+	display: initial;
+}
+
+.note-text {
+	position: relative;
+	top: -8px;
+	margin-bottom: 5px;
+	font-size: 11px;
+}
+		
+.note-star {
+	font-size: 11px;
+}
+
+/* Fix the Ponderation table issue when in responsive mode. */
+span.conted-tbl-break {
+	display: initial;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.btn-warning-df {
+    color: #fff;
+    background-color: #e89e01;
+    border: 0;
+	padding: 8px 16px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 2px;
+}
+
+.content{
+	background-color: #fff;
+}
+
+.white-bg .content{
+	background-color: #fff;
+}
+.container-fluid-df {
+	max-width: 1400px;
+}
+
+.container-fluid-df {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/* Removing padding from col-sm-3 (nav)  */
+.col-sm-3-df {
+	padding: 0;
+}
+
+.col-sm-9-content {
+	padding: 0 15px 8px 15px;
+	background-color: #fff;
+	/* Fix to keep bg white when low content */
+	min-height: 557px; 
+}
+
+
+/* ===================== ##Links ===================== */
+
+a:link, 
+a:visited , 
+a:active {color: #bf8100; -webkit-transition:0.2s color linear ;-moz-transition:0.2s color linear;transition:0.2s color linear;}
+a:hover {color: #463f2d; -webkit-transition:0.2s color linear ;-moz-transition:0.2s color linear;transition:0.2s color linear;}
+
+a.dark:link, 
+a.dark:visited, 
+a.dark:active {color: #463f2d; -webkit-transition:0.2s color linear ;-moz-transition:0.2s color linear;transition:0.2s color linear;}
+a.dark:hover {color: #bf8100; -webkit-transition:0.2s color linear; -moz-transition:0.2s color linear; transition:0.2s color linear;}
+
+.sidenav a:link, 
+.sidenav a:visited, 
+.sidenav a:hover {color: #333; text-decoration: underline;}
+.sidenav a:active {color: #bf8100; }
+
+a.footer:link, 
+a.footer:visited, 
+a.footer:hover, 
+a.footer:active {color: #463f2d; text-decoration: underline;}
+
+.img-link-shadow:hover {
+
+	transition:0.2s;
+	-moz-box-shadow: 1px 2px 4px rgba(0, 0, 0,0.5);
+	-webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+		
+.img-link:hover  {
+    opacity: 0.5;
+}
+
+/* ===================================================
+##Navbar
+====================================================== */
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+/*
+.row-overflow-hidden {
+  overflow: hidden; 
+}*/
+
+.row-banner.content-banner {
+	height: 125px;
+}
+
+.banner-left {
+    background-image: url("../images/banner-left-bg.jpg");
+    background-repeat: repeat-x;
+    padding-top: 25px;
+	padding: 25px 0 0 0 15px;
+	height: 125px;
+}
+
+
+
+.banner-right {
+    display: none;
+}
+
+/*!-- @media screen and (max-width: 767px) {
+	.banner-left {
+	display:none;
+	}
+} */
+
+/* ===================== ##LeftColFooter ===================== */
+
+#col-left-footer {
+	display: none;
+}
+
+#col-left-footer-bottom {
+	display: inline-block;
+}
+
+/* ===================== ##TopNav ===================== */
+
+/* Wrap to center the top-nav using margins */
+.top-wrap {
+	background-color: #fff;
+}
+
+
+#top-menu {
+	float: right;
+	margin: 4px 0 5px 0;
+}
+
+ul#top-menu li {
+    display: inline;
+	font-family: verdana;
+	font-weight: bold;
+    font-size: 12px;
+}
+
+li.top-menu {
+  background-image: url("../images/square.gif");
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  padding: 0 12px 0 12px;
+}
+
+li.top-menu-last {
+  padding-right: 0;
+}
+
+/* <!------------------------ ##MainNav ------------------------ // --> */
+
+#main-navbar {
+	display: none;
+}
+
+.navbar-brand {
+	font-family: Verdana;
+	font-size: 16px;
+}
+
+.navbar {
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+}
+
+/* ===================== ##Breadcrumbs ===================== */
+
+ul#breadcrumb {
+    padding: 0;
+	margin-top: 28px;
+	margin-bottom: 0px;
+}
+
+ul#breadcrumb li {
+    display: inline;
+    font-weight: bold;
+	font-family: verdana;
+	font-size: 12px;
+}
+
+li.arrow {
+  background-image: url("../images/breadcrumb-arrow.gif");
+  background-repeat: no-repeat;
+  background-position: 0px 3px;
+  padding-left: 12px;
+  padding-right: 5px;
+}
+
+li.arrow-text {
+  background-image: url("../images/text-arrow.gif");
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  padding-left: 12px;
+  padding-right: 5px;
+}
+
+li#home {
+  background-image: url("../images/breadcrumb-home.gif");
+  background-repeat: no-repeat;
+  background-position: 0px 2px;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+/* ===================== ##Search ===================== */
+
+.input-group-search {
+	margin: 25px 0 0 7px;
+}
+
+.form-control-search {
+	box-shadow: none;
+	border: 1px solid #d6d4d0;
+}
+
+.btn-default-search {
+	background-color: #f6f6f6;
+}
+
+.glyphicon-search {
+	opacity: 0.3;
+	top: 3px;
+	font-size: 16px;
+}
+
+/* ===================================================
+##Content
+====================================================== */
+
+.sidenav h1, .sidenav h2, .sidenav h3 {
+    color: #463f2d;;
+}
+
+.box_header  {
+	padding: 20px;
+	border: 1px solid #b4afa3;
+	margin-top: 20px;
+	margin-bottom: 35px;
+}
+
+.box_header header {
+	background-color: #e3dfd5;
+	color: #463f2d;
+	margin: -20px -20px 0 -20px;
+
+}
+.box_header header h3 {
+	font-size: 18px;
+	font-weight: 600;
+	color: #463f2d;
+	padding: 12px 20px 10px 20px;
+}
+.box_header header h5 {
+	font-weight: 600;
+	color: #463f2d;
+	padding: 0 20px 20px 20px;
+	margin-top: -10px;
+}
+.box_header ul {
+	margin-bottom: -10px;
+}
+
+/* ===================== ##Tables ===================== */
+
+#table-programs table {
+	border: 1px solid #a1a1a1;
+}
+
+#table-programs thead > tr > th { 
+	border-bottom: none;
+}
+
+#table-programs thead {
+	border: 1px solid #a1a1a1;
+}
+
+#table-programs thead > tr > th,
+#table-programs tbody > tr > th,
+#table-programs tfoot > tr > th,
+#table-programs thead > tr > td,
+#table-programs tbody > tr > td,
+#table-programs tfoot > tr > td { 
+	border: 1px solid #a1a1a1;
+}
+
+#table-programs th {
+	text-align: center;
+	background-color: #e3dfd5;
+}
+
+/* ===================== ##Blockquotes ===================== */
+
+blockquote {
+	font-family: Georgia, serif;
+	font-size: 18px;
+	font-style: italic;
+	width: 100%;
+	line-height: 1.7;
+	position: relative;
+	color: #383838;
+	padding-left: 65px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	border-left: 0;
+}
+
+blockquote:before {
+	display: block;
+	content: "\201C";
+	font-size: 80px;
+	position: absolute;
+	left: 10px;
+	top: -20px;
+	color: #c2c2c2;
+}
+
+blockquote cite {
+	color: #999999;
+	font-size: 14px;
+	display: block;
+	margin-top: 5px;
+}
+ 
+blockquote cite:before {
+	content: "\2014 \2009";
+}
+
+blockquote footer {
+	background-color: transparent;
+	text-align: right;
+	color: #b4b4b4;
+	font-size: 14px;
+	padding-bottom: 5px;
+}
+
+/* ========================== ##Misc. Styles ================ */
+
+.crspan {
+    padding: 0 30px;
+}
+
+/* ===================================================
+##Footer
+====================================================== */
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #e89d00;
+    color: white;
+    padding: 15px;
+}
+
+.text-footer {
+	margin-bottom: 0;
+	color: #463f2d;
+}
+
+.break {
+	display: none;
+}
+
+
+/* ===================================================
+##Media Queries
+====================================================== */
+
+    
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+    }
+	
+    .row.content {
+		height:auto;
+	}
+	#top-banner-logo-area{
+		display:none !important;
+	}
+}
+
+/* <!-- Breaking points [+]  // --> */
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+        
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+	span.conted-tbl-break {
+		display: none;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.col-sm-12-topbar{
+		background-color: #fff;
+	}
+	
+	li.top-menu-last {
+		padding-right: 0px;
+    }
+
+	.banner-right {
+	    background-image: url("../images/banner-right-school.jpg");
+        background-repeat: repeat-x;
+	    padding: 0;
+        text-align: left;
+		display: initial;
+    }
+	
+	.banner-image {
+		float: right;
+		display: initial;
+	}
+	
+	.content {
+		background-color: #b8b19e;
+	}
+	
+	#col-left-footer {
+	    padding: 12px;
+		display: inline-block;
+	}
+	
+	#col-left-footer-bottom {
+		display: none;
+	}
+	
+	ul#breadcrumb {
+		margin-top: 10px;
+	}
+	
+	.col-sm-9-content {
+	    padding: 0 30px 8px 30px;
+    }
+
+	#main-navbar {
+	    display: initial;
+    }
+	
+    .navbar {
+		display: none;
+	}
+	
+	.col-sm-3-df {
+	    background-color: #b8b19e;
+	   /* margin-bottom: -99999px;
+        padding-bottom: 99999px; */
+    }
+	
+	#left-col-footer {
+        background-image: url("../images/left-col-footer.jpg");
+		background-color: #fff;
+        background-repeat: no-repeat;
+		background-position: bottom right; 
+        height: 125px;
+    }
+	
+    .break {
+	    display: initial;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	br.responsive-break-2 {
+	    display: none;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	.container-fluid-df {
+		margin: 0 125px 0 125px;
+	}
+	
+	#topbar{
+		text-align: right;
+	}
+}
+
+/* Custom added by DF */
+@media (min-width: 1430px) {
+	br.responsive-break{
+		display: none;
+	}
+}
+
+/* Custom added by DF */
+@media (min-width: 1740px) {
+
+/* Edit - Margins at auto for centering on larger screens exceeding max-width - OT 
+	.container-fluid-df {
+		margin: 0 245px 0 245px;
+	}*/
+	
+	.container-fluid-df {
+		margin: 0 auto;
+	}
+}
+/* <!-- Breaking points [-]  // --> */
