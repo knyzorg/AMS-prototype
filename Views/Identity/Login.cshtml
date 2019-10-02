@@ -1,0 +1,23 @@
+﻿@model string
+@inject SignInManager signInManager
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login</h1>
+    <p>Press the button below to login</p>
+    <p>
+    <form asp-action="ExecuteLogin" method="post">
+        <input name="ReturnUrl" value="@Model" type="hidden">
+        <input name="username" placeholder="Username">
+        <input name="password" placeholder="Password">
+        <button>Log me in</button>
+    </form>
+</p>
+    <p>Current Status: @(signInManager.IsAuthenticated ? $"Authenticated, Roles: {string.Join(",", signInManager.Roles)}" : "Anonymous")</p>
+    <p><a asp-action="AuthenticatedTE">Only users authenticated as "TE" may open this page</a></p>
+    <p><a asp-action="AuthenticatedST">Only users authenticated as "ST" may open this page</a></p>
+    <p><a asp-action="AuthenticatedTEST">Only users authenticated as "TE" or "ST" may open this page</a></p>
+    <p><a asp-action="Logout">Logout</a></p>
+</div>

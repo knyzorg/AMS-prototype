@@ -12,6 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
+using vkAMS_prototype.Data;
+using vkAMS_prototype.Common;
 
 namespace vkAMS_prototype
 {
@@ -36,9 +39,9 @@ namespace vkAMS_prototype
             ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
             options.Cookie.SameSite = SameSiteMode.Lax;
             options.Cookie.Name = "SimpleTalk.AuthCookieAspNetCore";
-            options.LoginPath = "/Home/Login";
-            options.LogoutPath = "/Home/Logout";
-            options.AccessDeniedPath = "/Home/Denied";
+            options.LoginPath = "/Identity/Login";
+            options.LogoutPath = "/Identity/Logout";
+            options.AccessDeniedPath = "/Identity/Denied";
         });
 
                 services.Configure<CookiePolicyOptions>(options =>
@@ -49,8 +52,12 @@ namespace vkAMS_prototype
             ? CookieSecurePolicy.None : CookieSecurePolicy.Always;
         });
 
+            services.AddDbContext<SchoolContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc(options => options.Filters.Add(new AuthorizeFilter())).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddHttpContextAccessor();
+            services.AddSingleton<SignInManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +83,7 @@ namespace vkAMS_prototype
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Students}/{action=Index}/{id?}");
             });
         }
     }
