@@ -27,7 +27,7 @@ namespace vkAMS_prototype.Controllers
         public async Task<IActionResult> ExecuteLogin(string username, string password, string returnUrl = null)
         {
             LoginResult authenticationResult = await _signInManager.Login(username, password, "PRO");
-            return RedirectToAction("Login", new { Success = authenticationResult.Success, ErrorMessage = authenticationResult.ErrorMessage, ReturnUrl = returnUrl });
+            return RedirectToAction("Login", new { authenticationResult.Success, authenticationResult.ErrorMessage, ReturnUrl = returnUrl });
         }
         
         [HttpGet]
