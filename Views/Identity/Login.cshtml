@@ -1,25 +1,25 @@
-﻿@model LoginResult
+﻿@model LoginPageModel
 @inject SignInManager signInManager
 @{
     ViewData["Title"] = "Login";
 }
 
 <div class="text-center">
-    @if (Model.Success == true) {
+    @if (Model.LoginResult.Success == true) {
         <div class="alert alert-success" role="alert">
             Login successful
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-    } else if (!String.IsNullOrEmpty(Model.ErrorMessage)) {
+    } else if (!String.IsNullOrEmpty(Model.LoginResult.ErrorMessage)) {
         <div class="alert alert-danger" role="alert">
-            @Model.ErrorMessage
+            @Model.LoginResult.ErrorMessage
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-    } else if (Model.Success == false) {
+    } else if (Model.LoginResult.Success == false) {
         <div class="alert alert-danger" role="alert">
             Wrong username or password
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -31,7 +31,7 @@
     
     <p>
     <form asp-action="ExecuteLogin" method="post" class="form-horizontal">
-        <input name="ReturnUrl" value="@Model" type="hidden">
+        <input name="ReturnUrl" value="@Model.ReturnUrl" type="hidden">
         <div class="form-group">
             <label for="username" class="control-label col-sm-2">Username:</label>
             <div class="col-sm-10">

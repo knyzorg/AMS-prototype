@@ -27,14 +27,17 @@ namespace vkAMS_prototype.Controllers
         public async Task<IActionResult> ExecuteLogin(string username, string password, string returnUrl = null)
         {
             LoginResult authenticationResult = await _signInManager.Login(username, password, "PRO");
-            return RedirectToAction("Login", authenticationResult);
+            return RedirectToAction("Login", new { Success = authenticationResult.Success, ErrorMessage = authenticationResult.ErrorMessage, ReturnUrl = returnUrl });
         }
         
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Login([Bind]LoginResult loginResult, string returnUrl = null)
         {
-            return View(model: loginResult);
+            if (loginResult.Success == true && returnUrl != null) {
+                return Redirect(returnUrl);
+            }
+            return View(model: new LoginPageModel { LoginResult = loginResult, ReturnUrl = returnUrl });
         }
 
         [AllowAnonymous]
